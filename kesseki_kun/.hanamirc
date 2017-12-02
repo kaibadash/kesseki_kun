@@ -1,0 +1,3 @@
+project=kesseki_kun
+test=minitest
+template=erb
