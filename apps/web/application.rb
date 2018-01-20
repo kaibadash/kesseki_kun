@@ -88,6 +88,20 @@ module Web
       #
       # middleware.use Rack::Protection
 
+      middleware.use OmniAuth::Builder do
+        provider(
+            :auth0,
+            'qEQLaDSxroak7fgEiVLf7D-I-Y8UZBTM',
+            '0QbigZJvc9G5VVRLalnYzT4eWNGrHsDmqrzW_LTXXPaaPMhKg0rxy9fB0cWQ1Rya',
+            'kessekikun.auth0.com',
+            callback_path: "/auth/oauth2/callback",
+            authorize_params: {
+                scope: 'openid profile',
+                audience: 'https://kessekikun.auth0.com/userinfo'
+            }
+        )
+      end
+
       # Default format for the requests that don't specify an HTTP_ACCEPT header
       # Argument: A symbol representation of a mime type, defaults to :html
       #
