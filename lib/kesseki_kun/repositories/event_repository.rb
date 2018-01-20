@@ -1,5 +1,5 @@
 class EventRepository < Hanami::Repository
   associations do
-    belongs_to :user
+    has_one :user
   end
 end
