@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 gem 'rake'
 gem 'hanami',       '~> 1.1'
 gem 'hanami-model', '~> 1.1'
-
 gem 'mysql2'
+gem 'jsonapi-hanami', github: 'jsonapi-rb/jsonapi-hanami'
 
 group :development do
   # Code reloading

@@ -20,7 +20,8 @@ module Web
       #
       load_paths << [
         'controllers',
-        'views'
+        'views',
+        'resources'
       ]
 
       # Handle exceptions with HTTP statuses (true) or don't catch them (false).
@@ -271,6 +272,9 @@ module Web
         include Hanami::Helpers
         include Web::Assets::Helpers
       end
+
+      controller.format jsonapi: 'application/vnd.api+json'
+      body_parsers :json
     end
 
     ##
