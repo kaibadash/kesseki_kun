@@ -1,0 +1,15 @@
+nherit_from:
+  - https://raw.githubusercontent.com/pixta-dev/pixta-rubocop/master/rubocop.yml
+
+AllCops:
+  TargetRubyVersion: TODO
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'Gemfile'
+    - 'bin/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'deploy/**/*'
+    - 'vendor/**/*'
