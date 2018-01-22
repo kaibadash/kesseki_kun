@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class SerializableEvent < JSONAPI::Serializable::Resource
-  type 'event'
+  type "event"
   belongs_to :user
   attributes :id, :title, :description, :user_id, :due_date, :user
 

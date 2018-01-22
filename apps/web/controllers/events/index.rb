@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Web::Controllers::Events
   class Index
     include Web::Action
@@ -5,7 +7,7 @@ module Web::Controllers::Events
     expose :url_helpers
     deserializable_resource :event
 
-    def call(params)
+    def call(_params)
       self.data = EventRepository.new.all
       @url_helpers = routes
     end

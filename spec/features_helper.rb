@@ -1,8 +1,10 @@
-# Require this file for feature tests
-require_relative './spec_helper'
+# frozen_string_literal: true
 
-require 'capybara'
-require 'capybara/dsl'
+# Require this file for feature tests
+require_relative "./spec_helper"
+
+require "capybara"
+require "capybara/dsl"
 
 Capybara.app = Hanami.app
 

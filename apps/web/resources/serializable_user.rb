@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class SerializableUser < JSONAPI::Serializable::Resource
-  type 'user'
+  type "user"
   attributes :id, :name
 
   link :self do

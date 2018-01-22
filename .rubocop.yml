@@ -1,8 +1,8 @@
-nherit_from:
+inherit_from:
   - https://raw.githubusercontent.com/pixta-dev/pixta-rubocop/master/rubocop.yml
 
 AllCops:
-  TargetRubyVersion: TODO
+  TargetRubyVersion: "2.3"
   Include:
     - '**/Rakefile'
     - '**/config.ru'

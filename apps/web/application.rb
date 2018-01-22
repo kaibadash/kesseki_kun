@@ -1,5 +1,7 @@
-require 'hanami/helpers'
-require 'hanami/assets'
+# frozen_string_literal: true
+
+require "hanami/helpers"
+require "hanami/assets"
 
 module Web
   class Application < Hanami::Application
@@ -18,11 +20,11 @@ module Web
       #
       # When you add new directories, remember to add them here.
       #
-      load_paths << [
-        'controllers',
-        'views',
-        'resources'
-      ]
+      load_paths << %w(
+        controllers
+        views
+        resources
+      )
 
       # Handle exceptions with HTTP statuses (true) or don't catch them (false).
       # Defaults to true.
@@ -37,7 +39,7 @@ module Web
       # Routes definitions for this application
       # See: http://www.rubydoc.info/gems/hanami-router#Usage
       #
-      routes 'config/routes'
+      routes "config/routes"
 
       # URI scheme used by the routing system to generate absolute URLs
       # Defaults to "http"
@@ -88,20 +90,6 @@ module Web
       #
       # middleware.use Rack::Protection
 
-      middleware.use OmniAuth::Builder do
-        provider(
-            :auth0,
-            'qEQLaDSxroak7fgEiVLf7D-I-Y8UZBTM',
-            '0QbigZJvc9G5VVRLalnYzT4eWNGrHsDmqrzW_LTXXPaaPMhKg0rxy9fB0cWQ1Rya',
-            'kessekikun.auth0.com',
-            callback_path: "/auth/oauth2/callback",
-            authorize_params: {
-                scope: 'openid profile',
-                audience: 'https://kessekikun.auth0.com/userinfo'
-            }
-        )
-      end
-
       # Default format for the requests that don't specify an HTTP_ACCEPT header
       # Argument: A symbol representation of a mime type, defaults to :html
       #
@@ -135,7 +123,7 @@ module Web
 
       # The relative path to templates
       #
-      templates 'templates'
+      templates "templates"
 
       ##
       # ASSETS
@@ -171,7 +159,7 @@ module Web
         # Specify sources for assets
         #
         sources << [
-          'assets'
+          "assets",
         ]
       end
 
@@ -190,7 +178,7 @@ module Web
       #   * https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options
       #   * https://www.owasp.org/index.php/Clickjacking
       #
-      security.x_frame_options 'DENY'
+      security.x_frame_options "DENY"
 
       # X-Content-Type-Options prevents browsers from interpreting files as
       # something else than declared by the content type in the HTTP headers.
@@ -201,7 +189,7 @@ module Web
       #   * https://msdn.microsoft.com/en-us/library/gg622941%28v=vs.85%29.aspx
       #   * https://blogs.msdn.microsoft.com/ie/2008/09/02/ie8-security-part-vi-beta-2-update
       #
-      security.x_content_type_options 'nosniff'
+      security.x_content_type_options "nosniff"
 
       # X-XSS-Protection is a HTTP header to determine the behavior of the
       # browser in case an XSS attack is detected.
@@ -211,7 +199,7 @@ module Web
       #   * https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
       #   * https://www.owasp.org/index.php/OWASP_Secure_Headers_Project#X-XSS-Protection
       #
-      security.x_xss_protection '1; mode=block'
+      security.x_xss_protection "1; mode=block"
 
       # Content-Security-Policy (CSP) is a HTTP header supported by modern
       # browsers. It determines trusted sources of execution for dynamic
@@ -248,7 +236,7 @@ module Web
       #
       #  * https://developer.mozilla.org/en-US/docs/Web/Security/CSP/CSP_policy_directives
       #
-      security.content_security_policy %{
+      security.content_security_policy %(
         form-action 'self';
         frame-ancestors 'self';
         base-uri 'self';
@@ -263,7 +251,7 @@ module Web
         child-src 'self';
         frame-src 'self';
         media-src 'self'
-      }
+      )
 
       ##
       # FRAMEWORKS
@@ -287,7 +275,7 @@ module Web
         include Web::Assets::Helpers
       end
 
-      controller.format jsonapi: 'application/vnd.api+json'
+      controller.format jsonapi: "application/vnd.api+json"
       body_parsers :json
     end
 

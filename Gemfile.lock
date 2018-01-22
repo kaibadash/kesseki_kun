@@ -56,6 +56,10 @@ GEM
       dry-equalizer (~> 0.2)
       dry-logic (~> 0.4, >= 0.4.0)
       dry-types (~> 0.11.0)
+    faraday (0.14.0)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.12.2)
+      faraday (>= 0.7.4, < 1.0)
     hanami (1.1.0)
       bundler
       concurrent-ruby (~> 1.0)
@@ -121,6 +125,7 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.1)
+    multipart-post (2.0.0)
     mysql2 (0.4.10)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
@@ -130,6 +135,7 @@ GEM
     powerpack (0.1.1)
     public_suffix (3.0.1)
     rack (2.0.3)
+    rack-cors (1.0.2)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
@@ -181,11 +187,15 @@ PLATFORMS
 DEPENDENCIES
   capybara
   dotenv (~> 2.0)
+  faraday
+  faraday_middleware
   hanami (~> 1.1)
   hanami-model (~> 1.1)
+  hanami-utils
   jsonapi-hanami!
   minitest
   mysql2
+  rack-cors
   rake
   rubocop
   shotgun

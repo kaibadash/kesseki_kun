@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Web::Controllers::Users
   class Index
     include Web::Action
@@ -5,7 +7,7 @@ module Web::Controllers::Users
     expose :url_helpers
     deserializable_resource :user
 
-    def call(params)
+    def call(_params)
       self.data = UserRepository.new.all
       @url_helpers = routes
     end

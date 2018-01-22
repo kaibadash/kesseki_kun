@@ -1,7 +1,9 @@
-# Require this file for unit tests
-ENV['HANAMI_ENV'] ||= 'test'
+# frozen_string_literal: true
 
-require_relative '../config/environment'
-require 'minitest/autorun'
+# Require this file for unit tests
+ENV["HANAMI_ENV"] ||= "test"
+
+require_relative "../config/environment"
+require "minitest/autorun"
 
 Hanami.boot
