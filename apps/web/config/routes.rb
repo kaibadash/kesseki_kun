@@ -10,3 +10,4 @@ get "/events/:id", to: "events#show", as: :event
 get "/users", to: "users#index", as: :users
 get "/users/:id", to: "users#show", as: :user
 post "/users/new", to: "users#new"
+post '/events/new', to: 'events#new'
